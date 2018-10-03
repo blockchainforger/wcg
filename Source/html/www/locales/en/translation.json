@@ -764,6 +764,7 @@
   "parse_transaction": "Parse Transaction",
   "parse_transaction_bytes": "Parse Transaction Bytes",
   "passphrase": "Passphrase",
+  "unmaskpassphrase":"Unmask Passphrase",
   "passphrase_length_warning": "Your passphrase must be at least 35 characters long.",
   "passphrase_remote_warning": "Your passphrase will be sent to the server!",
   "passphrase_required_for_decryption": "Your passphrase is required to decrypt these messages.",
@@ -1341,7 +1342,7 @@
   "forging_another_account_tooltip": "Forging with account  __accountRS__",
   "forging_more_than_one_tooltip": "Forging with __generators__ accounts",
   "not_forging_not_started_tooltip": "Forging not started",
-  "forging_unknown_tooltip": "Cannot determine forging status, please define administrator password",
+  "forging_unknown_tooltip": "Cannot determine forging status",
   "forging_stopped_tooltip": "Forging stopped",
   "phasing_only": "Mandatory Approval",
   "mandatory_approval_info": "All subsequent transactions will be mandatory approved (phased) according to whatever is set below. Once set, this account control can only be removed with the approval of the accounts/stake holders set below.",
@@ -1418,8 +1419,8 @@
   "coin": "Coin",
   "coins": "Coins",
   "coin_exchange": "Deposit Coin",
-  "exchange_deposit_mail": "To deposit __coin__ to __coin__ Asset please contact our agent at the following email address: __agentEmail__",
-  "exchange_deposit_button": "Deposit __coin__ to __coin__ Asset",
+  "exchange_deposit_mail": "To deposit __coinf__ to __coin__ Asset please contact our agent at the following email address: __agentEmail__",
+  "exchange_deposit_button": "Deposit __coinf__ to __coin__ Asset",
   "exchange_using_shape_shift": "Deposit Coin to Asset",
   "exchange_wcg_to_coin": "Exchange WCG to Coin",
   "exchange_coin_to_wcg": "Exchange Coin to WCG",
@@ -1871,5 +1872,7 @@
   "interest": "Interest",
   "false": "False",
   "true": "True",
-  "active_forgers": "Active forgers"
+  "active_forgers": "Active forgers",
+  "interest_payment2":"Interest payment",
+  "interest_payment_correction":"Interest correction"
 }

@@ -765,6 +765,7 @@
   "parse_transaction":"解析交易",
   "parse_transaction_bytes":"解析交易字节",
   "passphrase":"密码",
+  "unmaskpassphrase":"显示密码",
   "passphrase_length_warning":"您的密码长度必须至少为 35 个字符。",
   "passphrase_remote_warning":"您的密码将发送到服务器 ！",
   "passphrase_required_for_decryption":"需要您的密码来解密这些信息。",
@@ -1419,8 +1420,8 @@
   "coin":"币种",
   "coins":"币种",
   "coin_exchange": "Deposit Coin",
-  "exchange_deposit_mail": "如要将 __coin__ 存入 __coin__ 资产，请通过以下电子邮件地址联系我们的代理：__agentEmail__",
-  "exchange_deposit_button": "将 __coin__ 存入 __coin__ 资产",
+  "exchange_deposit_mail": "如要将 __coinf__ 存入 __coin__ 资产，请通过以下电子邮件地址联系我们的代理：__agentEmail__",
+  "exchange_deposit_button": "将 __coinf__ 存入 __coin__ 资产",
   "exchange_using_shape_shift": "Deposit Coin to Asset",
   "exchange_wcg_to_coin":"WCG 交易为其它币种",
   "exchange_coin_to_wcg":"其它币种交易为 WCG",
@@ -1656,5 +1657,13 @@
   "false": "假",
   "true": "真",
   "compressed": "压缩",
-  "asset_exchange": "资产交换"
+  "asset_exchange": "资产交换",
+  "account_interest":"账户-利息",
+  "account_rs":"账号",
+  "payment height":"利息付出区块高度",
+  "period begin":"区块开始高度",
+  "period end":"区块完结高度",
+  "interest correction":"纠正的利息",
+  "interest_payment2":"派出利息",
+  "interest_payment_correction":"纠正利息"
 }

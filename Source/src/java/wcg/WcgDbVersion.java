@@ -983,7 +983,7 @@ class WcgDbVersion extends DbVersion {
             case 414:
                 apply(null);
             case 415:
-                wcg.db.FullTextTrigger.init();
+                //wcg.db.FullTextTrigger.init();
                 apply(null);
             case 416:
                 apply("DROP INDEX IF EXISTS asset_height_idx");
@@ -1190,13 +1190,53 @@ class WcgDbVersion extends DbVersion {
             case 490:
                 apply("CREATE TABLE IF NOT EXISTS interest_account (account_id BIGINT NOT NULL, payment_number INT NOT NULL, begin INT NOT NULL, end INT NOT NULL, balance BIGINT NULL, payment_id INT NULL, next BOOLEAN NOT NULL DEFAULT TRUE, timestamp INT NOT NULL, PRIMARY KEY(account_id, payment_number))");
 						case 491:
-                apply("CREATE TABLE IF NOT EXISTS interest_balance (account_id BIGINT NOT NULL, height INT NOT NULL, balance BIGINT NOT NULL, timestamp INT NOT NULL, PRIMARY KEY(account_id, height))");    
+								apply("CREATE TABLE IF NOT EXISTS interest_balance (account_id BIGINT NOT NULL, height INT NOT NULL, balance BIGINT NOT NULL, timestamp INT NOT NULL, PRIMARY KEY(account_id, height))");    
 						case 492:
 								apply("CREATE TABLE IF NOT EXISTS interest_payment (id IDENTITY, height INT NOT NULL, amount BIGINT, accounts_number INT, transaction_id BIGINT NULL, transaction_height INT NULL, timestamp INT NOT NULL)");
-            case 493:
-                return;
-            default:
-                throw new RuntimeException("Blockchain database inconsistent with code, at update " + nextUpdate + ", probably trying to run older code on newer database");
+						case 493:
+								apply("ALTER TABLE interest_account ADD COLUMN IF NOT EXISTS payment_height INT NULL");
+						case 494:
+								apply("UPDATE interest_account ia SET ia.payment_height=(SELECT height FROM interest_payment ip WHERE ia.payment_id=ip.id)");
+						case 495:
+								apply("CREATE INDEX IF NOT EXISTS interest_balance_account_id_idx ON interest_balance (account_id)");
+						case 496:
+								apply("CREATE INDEX IF NOT EXISTS interest_account_end_idx ON interest_account (end)");
+						case 497:
+								apply("CREATE INDEX IF NOT EXISTS interest_account_payment_height_idx ON interest_account (payment_height)");
+						case 498:
+                apply("CREATE INDEX IF NOT EXISTS interest_balance_height_idx ON interest_balance (height)");
+            case 499:
+                apply("ALTER TABLE interest_balance DROP COLUMN IF EXISTS timestamp");
+            case 500:
+								apply("ALTER TABLE interest_account ADD COLUMN IF NOT EXISTS first_balance BIGINT");
+						case 501:
+								apply("ALTER TABLE interest_account ADD COLUMN IF NOT EXISTS type INT NOT NULL DEFAULT 0");
+						case 502:		
+								apply("ALTER TABLE interest_account ADD COLUMN IF NOT EXISTS wrong_balance BIGINT DEFAULT 0");
+						case 503:
+								apply("ALTER TABLE interest_account DROP PRIMARY KEY");
+						case 504:		
+								apply("ALTER TABLE interest_account ADD CONSTRAINT PK_INTEREST_ACCOUNT PRIMARY KEY (\"ACCOUNT_ID\", \"PAYMENT_NUMBER\", \"TYPE\")");
+						case 505:
+								apply("ALTER TABLE interest_account DROP COLUMN IF EXISTS timestamp");
+						case 506:		
+								apply("ALTER TABLE interest_payment DROP COLUMN IF EXISTS timestamp");
+						case 507:
+								apply("ALTER TABLE interest_payment ALTER COLUMN \"ID\" SET DEFAULT null");
+						case 508:
+								apply("ALTER TABLE interest_payment ALTER COLUMN \"ID\" integer");
+						case 509:
+								apply("ALTER TABLE interest_account ADD COLUMN IF NOT EXISTS check_height INT DEFAULT 0");
+						case 510:
+								apply("ALTER TABLE interest_account DROP PRIMARY KEY");
+						case 511:	
+								apply("ALTER TABLE interest_account ADD CONSTRAINT PK_INTEREST_ACCOUNT PRIMARY KEY (\"ACCOUNT_ID\", \"BEGIN\", \"TYPE\")");
+						case 512:
+								apply("ALTER TABLE interest_account DROP COLUMN IF EXISTS payment_number");
+						case 513:
+							return;
+						default:
+								throw new RuntimeException("Blockchain database inconsistent with code, at update " + nextUpdate + ", probably trying to run older code on newer database");
         }
     }
 }

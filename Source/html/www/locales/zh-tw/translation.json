@@ -765,6 +765,7 @@
   "parse_transaction":"解析交易",
   "parse_transaction_bytes":"解析交易字節",
   "passphrase":"密碼",
+  "unmaskpassphrase":"顯示密碼",
   "passphrase_length_warning":"您的密碼長度必須至少為 35 個字符。",
   "passphrase_remote_warning":"您的密碼將發送到服務器 ！",
   "passphrase_required_for_decryption":"需要您的密碼來解密這些信息。",
@@ -1419,8 +1420,8 @@
   "coin":"幣種",
   "coins":"幣種",
   "coin_exchange": "Deposit Coin",
-  "exchange_deposit_mail": "To deposit __coin__ to __coin__ Asset please contact our agent at the following email address: __agentEmail__",
-  "exchange_deposit_button": "Deposit __coin__ to __coin__ Asset",
+  "exchange_deposit_mail": "To deposit __coinf__ to __coin__ Asset please contact our agent at the following email address: __agentEmail__",
+  "exchange_deposit_button": "Deposit __coinf__ to __coin__ Asset",
   "exchange_wcg_to_coin":"WCG 交易為其它幣種",
   "exchange_coin_to_wcg":"其它幣種交易為 WCG",
   "exchange_wcg_to_coin_shift":"WCG 交易為 __coin__ (轉換)",
@@ -1608,5 +1609,13 @@
   "unconfirmed_transactions_counter":"未確認的交易數目",
   "current_blockchain_height":"目前區塊鏈高度",
   "server_connection_status":"服務器連接狀態",
-  "cumulative_difficulty":"累計難度"
+  "cumulative_difficulty":"累計難度",
+  "account_interest":"賬戶-利息",
+  "account_rs":"賬号",
+  "payment height":"利息付出區塊高度",
+  "period begin":"區塊開始高度",
+  "period end":"區塊完結高度",
+  "interest correction":"糾正的利息",
+  "interest_payment2":"派出利息",
+  "interest_payment_correction":"糾正利息"
 }
